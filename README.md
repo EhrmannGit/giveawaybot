@@ -23,7 +23,7 @@ Activate the virtual environment by running the command below:
 
 For Linux/macOS:
 ```
-source venv/bin/activate
+source env/bin/activate
 ```
 
 For Windows:
