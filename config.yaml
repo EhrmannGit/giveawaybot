@@ -1,0 +1,9 @@
+# api_id and api_hash from https://my.telegram.org, under API Development.
+# You must replace placeholders with real values
+api_id: api_id
+api_hash: api_hash
+# name of your session. your nickname for example.
+# If you change this param after authorization then you will need to authorize again
+session_name: session_name
+# id of chat where bot reads commands (not id of group with giveaway). Usually it starts with "-100"
+cms_giveaway_chat_id: chat_id
