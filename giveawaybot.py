@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import sys
 
 import yaml
 from telethon import TelegramClient, events, sync
@@ -68,7 +69,7 @@ class Response:
         x += f"Answered correctly: {self.right_answered}\n\nWinners:\n"
         for i in range(0, len(self.winners)):
             winner = self.winners[i]
-            x += f'<b>{i+1}. {winner.name}</b> [{winner.dtime.strftime("%d/%m %H:%M:%S")}]:\n {winner.message}\n\n'
+            x += f'<b>{i + 1}. {winner.name}</b> [{winner.dtime.strftime("%d/%m %H:%M:%S")}]:\n {winner.message}\n\n'
         return x
 
 
@@ -127,11 +128,18 @@ async def main():
     logger = logging.getLogger()
     logger.setLevel("INFO")
 
-    with open("config.yaml", "r") as f:
-        config = yaml.load(f, Loader=yaml.FullLoader)
-        logger.info("config: %s", config)
-    bot = TelegramClient(config["session_name"], config["api_id"], config["api_hash"])
-    cms_giveaway_chat_id = config["cms_giveaway_chat_id"]
+    try:
+        with open("config.yaml", "r") as f:
+            config = yaml.load(f, Loader=yaml.FullLoader)
+            logger.info("config: %s", config)
+
+        bot = TelegramClient(config["session_name"], config["api_id"], config["api_hash"])
+        cms_giveaway_chat_id = config["cms_giveaway_chat_id"]
+    except Exception as e:
+        logger.error("invalid config")
+        logger.exception("Got an exception: ", e)
+        input("Press enter to close the program...")
+        sys.exit(1)
 
     @bot.on(events.NewMessage())
     async def handler(event):
@@ -156,7 +164,6 @@ async def main():
 
         await event.reply("\n" + str_response, parse_mode='html')
 
-
     await bot.start()
     try:
         await bot.run_until_disconnected()
@@ -164,6 +171,7 @@ async def main():
         logger.exception("Got an exception: ", e)
     finally:
         await bot.disconnect()
+    input("Press enter to close the program...")
 
 
 if __name__ == '__main__':

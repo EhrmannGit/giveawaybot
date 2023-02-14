@@ -8,9 +8,10 @@ To get started, fill out the config.yaml file. The file specifies the fields and
 
 The script can be used on any operating system with Python installed. You can download Python for Windows from https://www.python.org/downloads/windows/.
 
-If you want to run GiveAwayBot as an exe program, you can use the one that I have already compiled or compile it yourself using the pyinstaller package following this instruction: https://datatofish.com/executable-pyinstaller/.
+If you want to run GiveAwayBot as an exe program, you can use the one that I have already compiled or compile it yourself using the `pyinstaller` package following this instruction: https://datatofish.com/executable-pyinstaller/.
 
-To run the program, follow these steps:
+### config.yaml must be in a folder with exe file!
+To run the program as a script, follow these steps:
 
 Create a virtual Python environment using the following command:
 
@@ -26,8 +27,13 @@ source venv/bin/activate
 ```
 
 For Windows:
+Run Powershell as admin. Execute command:
 ```
-venv\Scripts\activate
+Set-ExecutionPolicy RemoteSigned
+```
+Print "y" and press Enter. Run
+```
+env\Scripts\activate
 ```
 Install the required dependencies using the following command:
 ```
