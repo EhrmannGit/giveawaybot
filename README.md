@@ -8,7 +8,7 @@ To get started, fill out the config.yaml file. The file specifies the fields and
 
 The script can be used on any operating system with Python installed. You can download Python for Windows from https://www.python.org/downloads/windows/.
 
-If you want to run GiveAwayBot as an exe program, you can use the one that I have already compiled or compile it yourself using the `pyinstaller` package following this instruction: https://datatofish.com/executable-pyinstaller/.
+If you want to run GiveAwayBot as an exe program, you can use the one that I have already compiled [(download here)](https://github.com/EhrmannGit/giveawaybot/releases) or compile it yourself using the `pyinstaller` package following this instruction: https://datatofish.com/executable-pyinstaller/.
 
 ### config.yaml must be in a folder with exe file!
 To run the program as a script, follow these steps:
