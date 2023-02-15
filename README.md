@@ -46,6 +46,8 @@ python giveawaybot.py
 
 After starting the program, it will prompt you to enter your phone number, and then the authorization code that you will receive from Telegram.
 
+If you have two-factor authentication enabled, the system will prompt you to enter a password. The password may be entered in stealth mode, meaning that the symbols typed will not be visible.
+
 Upon successful authorization, the bot is ready to work. It will respond to messages in the group whose ID you specified in the config.yaml file.
 
 Expected message structure:
