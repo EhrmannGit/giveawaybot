@@ -1,4 +1,5 @@
-# api_id and api_hash from https://my.telegram.org, under API Development.
+# api_id and api_hash from https://my.telegram.org, under API Development section. 
+# Guide https://core.telegram.org/api/obtaining_api_id
 # You must replace placeholders with real values
 api_id: api_id
 api_hash: api_hash
