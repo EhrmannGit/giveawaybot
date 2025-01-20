@@ -7,6 +7,8 @@ from telethon import TelegramClient, events, sync
 from random import sample
 from datetime import datetime
 
+from telethon.tl.types import Channel
+
 
 class User:
     def __init__(self, sender_id, name, message, dtime: datetime):
@@ -119,7 +121,11 @@ def parse_message(message: str):
 async def crawl_comments(bot, channel_link, post_id):
     users = []
     async for message in bot.iter_messages(channel_link, reply_to=post_id):
-        users.append(User(message.sender_id, message.sender.first_name, message.text, message.date))
+        if type(message.sender) is Channel:
+            name = message.sender.title
+        else:
+            name = message.sender.first_name
+        users.append(User(message.sender_id, name, message.text, message.date))
     return users
 
 
